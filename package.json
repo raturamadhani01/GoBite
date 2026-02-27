@@ -19,8 +19,11 @@
   },
   "homepage": "https://github.com/raturamadhani01/Food#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "invoice.js": "^3.4.1",
     "pg": "^8.18.0",
     "sequelize": "^6.37.7"
   },
