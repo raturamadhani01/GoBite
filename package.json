@@ -24,7 +24,7 @@
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "invoice.js": "^3.4.1",
-    "pg": "^8.18.0",
+    "pg": "^8.19.0",
     "sequelize": "^6.37.7"
   },
   "devDependencies": {

@@ -4,10 +4,8 @@ const { hashPassword, comparePassword } = require("../helpers/hash");
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {
-      // One-to-One: satu user satu profile 
+    static associate(models) { 
       User.hasOne(models.UserProfile, { foreignKey: 'userId' });
-      // One-to-Many: Satu user banyak order
       User.hasMany(models.Order, { foreignKey: 'UserId' });
     }
 

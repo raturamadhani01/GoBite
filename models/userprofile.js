@@ -5,7 +5,6 @@ const { hashPassword } = require("../helpers/hash");
 module.exports = (sequelize, DataTypes) => {
   class UserProfile extends Model {
     static associate(models) {
-      // One-to-One: UserProfile belongs to User
       UserProfile.belongsTo(models.User, { foreignKey: 'userId' });
     }
   }
