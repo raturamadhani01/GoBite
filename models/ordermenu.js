@@ -10,8 +10,14 @@ module.exports = (sequelize, DataTypes) => {
 
   OrderMenu.init(
     {
-      OrderId: DataTypes.INTEGER,
-      MenuId: DataTypes.INTEGER,
+      OrderId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      MenuId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       sequelize,

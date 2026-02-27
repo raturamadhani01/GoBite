@@ -1,18 +1,15 @@
 const router = require("express").Router();
-const Controller = require("../controllers/controller");
-// const storeRoutes = require("./stores");
-// const employeeRoutes = require("./employees");
 
-// ** STORE
-// router.get("/", (req, res) => {
-//     res.redirect("/homes")
-// })
-// router.use("/stores", storeRoutes);
-// ** EMPLOYEE
-// router.use("/", employeeRoutes);
+const main = require("./main");
+const auth = require("./auth");
+const menu = require("./menu");
+const order = require("./order");
+const driver = require("./driver");
 
-router.get("", Controller.landingPage)
-router.get("/login", Controller.login)
-router.get("/gobite", Controller.dashboard)
+router.use("/", main);
+router.use("/", auth);
+router.use("/menus", menu);
+router.use("/orders", order);
+router.use("/drivers", driver);
 
 module.exports = router;
