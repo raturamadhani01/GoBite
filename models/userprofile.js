@@ -1,5 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
+const { hashPassword } = require("../helpers/hash");
 
 module.exports = (sequelize, DataTypes) => {
   class UserProfile extends Model {
@@ -11,15 +12,51 @@ module.exports = (sequelize, DataTypes) => {
 
   UserProfile.init(
     {
-      name: DataTypes.STRING,
-      phoneNumber: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      userId: DataTypes.INTEGER,
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "Profile name is required" },
+          notEmpty: { msg: "Profile name is required" },
+        },
+      },
+      phoneNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "Phone number is required" },
+          notEmpty: { msg: "Phone number is required" },
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "Profile email is required" },
+          notEmpty: { msg: "Profile email is required" },
+          isEmail: { msg: "Profile email format is invalid" },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: { msg: "User is required for profile" },
+        },
+      },
     },
     {
       sequelize,
       modelName: 'UserProfile',
+      hooks: {
+        beforeCreate(profile) {
+          profile.password = hashPassword(profile.password);
+        },
+      },
     }
   );
 
