@@ -11,7 +11,7 @@ const Controller = require("../controllers/controller");
 // ** EMPLOYEE
 // router.use("/", employeeRoutes);
 
-router.get("/baru", Controller.landingPage)
+router.get("", Controller.landingPage)
 router.get("/login", Controller.login)
 router.get("/gobite", Controller.dashboard)
 
