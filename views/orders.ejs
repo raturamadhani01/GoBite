@@ -17,7 +17,7 @@
 
           <div class="container py-4">
 
-            <!-- Header -->
+
             <div class="d-flex justify-content-between align-items-center mb-3">
               <h3 class="mb-0">Orders</h3>
               <% if (userRole==="pembeli" ) { %>
@@ -25,7 +25,7 @@
                 <% } %>
             </div>
 
-            <!-- Alerts -->
+
             <% if (pageMessage) { %>
               <div class="alert alert-success alert-dismissible fade show" role="alert">
                 Pesanan berhasil dihapus
@@ -39,14 +39,12 @@
                   </div>
                   <% } %>
 
-                    <!-- Filter Card -->
                     <div class="card shadow-sm mb-4">
                       <div class="card-header bg-dark text-white fw-semibold">
                         🔍 Filter Orders
                       </div>
                       <div class="card-body">
                         <form method="get" action="/orders" class="row g-3 align-items-end">
-                          <!-- Driver filter -->
                           <div class="col-md-5">
                             <label class="form-label fw-semibold">Driver</label>
                             <select name="driverId" class="form-select">
@@ -59,7 +57,6 @@
                             </select>
                           </div>
 
-                          <!-- Food / Menu filter -->
                           <div class="col-md-5">
                             <label class="form-label fw-semibold">Food (Menu)</label>
                             <select name="menuId" class="form-select">
@@ -72,7 +69,6 @@
                             </select>
                           </div>
 
-                          <!-- Buttons -->
                           <div class="col-md-2 d-flex gap-2">
                             <button type="submit" class="btn btn-dark flex-fill">Apply</button>
                             <a href="/orders" class="btn btn-outline-secondary flex-fill">Reset</a>
@@ -81,7 +77,7 @@
                       </div>
                     </div>
 
-                    <!-- Active filter badge -->
+
                     <% if (filterDriverId || filterMenuId) { %>
                       <div class="mb-3 d-flex gap-2 flex-wrap">
                         <% if (filterDriverId) { const d=drivers.find(x=> String(x.id) === String(filterDriverId));
@@ -168,7 +164,6 @@
                                           <% } else { %> – <% } %>
                                       </td>
 
-                                      <!-- Food column (highlighted if filtered) -->
                                       <td class="<%= filterMenuId ? 'table-success' : '' %>">
                                         <% if (order.Menus && order.Menus.length) { %>
                                           <% order.Menus.forEach(menu=> { %>
@@ -179,7 +174,6 @@
                                               <% } else { %> – <% } %>
                                       </td>
 
-                                      <!-- Price -->
                                       <td>
                                         <% const fallback=(order.Menus || []).reduce((s, m)=> s + Number(m.price || 0),
                                           0); %>
@@ -189,7 +183,6 @@
                                             </span>
                                       </td>
 
-                                      <!-- Action -->
                                       <td>
                                         <a href="/orders/<%= order.id %>/invoice"
                                           class="btn btn-sm btn-outline-dark mb-1" title="Download Invoice PDF">🧾

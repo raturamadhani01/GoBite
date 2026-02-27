@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       return `${this.phoneNumber.slice(0, 4)}****${this.phoneNumber.slice(-3)}`;
     }
     static associate(models) {
-      // One-to-Many: Driver has many Orders
       Driver.hasMany(models.Order, { foreignKey: 'DriverId' });
     }
   }

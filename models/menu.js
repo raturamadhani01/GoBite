@@ -6,7 +6,6 @@ const { formatRupiah } = require("../helpers/format");
 module.exports = (sequelize, DataTypes) => {
   class Menu extends Model {
     static associate(models) {
-      // Many-to-Many: Menu belongs to many Orders through OrderMenu
       Menu.belongsToMany(models.Order, {
         through: models.OrderMenu,
         foreignKey: 'MenuId',

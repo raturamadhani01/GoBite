@@ -32,7 +32,6 @@
             overflow: hidden;
         }
 
-        /* ── HEADER ── */
         .invoice-header {
             background: #111;
             color: #fff;
@@ -68,12 +67,10 @@
             color: #aaa;
         }
 
-        /* ── BODY ── */
         .invoice-body {
             padding: 40px 48px;
         }
 
-        /* Addresses */
         .address-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -102,14 +99,12 @@
             font-size: 13px;
         }
 
-        /* Divider */
         .divider {
             border: none;
             border-top: 1px solid #eee;
             margin: 32px 0;
         }
 
-        /* Line items table */
         table.items-table {
             width: 100%;
             border-collapse: collapse;
@@ -148,7 +143,7 @@
             border-bottom: none;
         }
 
-        /* Totals */
+
         .totals-section {
             display: flex;
             justify-content: flex-end;
@@ -180,7 +175,7 @@
             color: #06C167;
         }
 
-        /* Driver note */
+
         .driver-note {
             background: #f7f7f7;
             border-left: 4px solid #06C167;
@@ -195,7 +190,6 @@
             color: #111;
         }
 
-        /* Footer */
         .invoice-footer {
             background: #f7f7f7;
             padding: 24px 48px;
@@ -263,7 +257,7 @@
 
     <div class="invoice-wrapper">
 
-        <!-- Header -->
+
         <div class="invoice-header">
             <div>
                 <div class="brand">Food<span>App</span></div>
@@ -283,10 +277,10 @@
             </div>
         </div>
 
-        <!-- Body -->
+
         <div class="invoice-body">
 
-            <!-- From / To -->
+
             <div class="address-grid">
                 <div class="address-block">
                     <div class="label">From</div>
@@ -314,7 +308,7 @@
 
             <hr class="divider">
 
-            <!-- Order Info Banner -->
+
             <div class="driver-note">
                 <strong>Order:</strong>
                 <%= order.name %> &nbsp;|&nbsp;
@@ -326,7 +320,6 @@
                                         <% } %>
             </div>
 
-            <!-- Line Items -->
             <table class="items-table">
                 <thead>
                     <tr>
@@ -362,7 +355,6 @@
                 </tbody>
             </table>
 
-            <!-- Totals -->
             <div class="totals-section">
                 <div class="totals-table">
                     <div class="row">
@@ -386,15 +378,14 @@
                 </div>
             </div>
 
-        </div><!-- /invoice-body -->
+        </div>
 
-        <!-- Footer -->
         <div class="invoice-footer">
             <p>Thank you for your order! 🍔</p>
             <button class="print-btn" onclick="window.print()">🖨️ Print Invoice</button>
         </div>
 
-    </div><!-- /invoice-wrapper -->
+    </div>
 
 </body>
 
